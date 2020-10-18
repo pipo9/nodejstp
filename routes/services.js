@@ -10,7 +10,7 @@ require('dotenv/config');
     
     var storage = multer.diskStorage({ 
         destination: (req, file, cb) => { 
-            cb(null, 'uploads') 
+            cb(null, 'routes/uploads') 
         }, 
         filename: (req, file, cb) => { 
             cb(null, file.fieldname + '-' + Date.now()) 
@@ -42,7 +42,7 @@ app.post('/find', upload.single('image'), (req, res, next) => {
 		name: req.body.name, 
 		desc: req.body.desc, 
 		img: { 
-			data: fs.readFileSync(path.join('C:/Users/achraf/Desktop/nodejstp/uploads/' + req.file.filename)), 
+			data: fs.readFileSync(path.join(__dirname+'/uploads/' + req.file.filename)), 
 			contentType: 'image/png'
 		} 
 	} 
