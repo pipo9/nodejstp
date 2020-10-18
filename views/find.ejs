@@ -1,17 +1,13 @@
  
 <h1>Uplaoded Images</h1> 
-<div> 
+<div >    
     <% items.forEach(function(image) { %> 
-    <div> 
-        <div> 
-            <img src="data:image/<%=image.img.contentType%>;base64, 
-                <%=image.img.data.toString('base64')%>"> 
-            <div> 
-                <h5><%= image.name %></h5> 
-                <p><%= image.desc %></p> 
-            </div> 
-        </div> 
-    </div> 
+
+        <div class="card col-md-6 m-auto" style="width:400px" style="display: inline;">
+            <img class="card-img-top p-2 bg-info" src="data:image/<%=image.img.contentType%>;base64, 
+            <%=image.img.data.toString('base64')%>" alt="Card image">
+          </div>
+
     <% }) %> 
 </div> 
 

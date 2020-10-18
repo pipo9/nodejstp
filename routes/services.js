@@ -2,7 +2,7 @@ var express = require('express')
 var app = express() 
 var fs = require('fs'); 
 var path = require('path'); 
-var mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
 
 require('dotenv/config'); 
@@ -42,7 +42,7 @@ app.post('/find', upload.single('image'), (req, res, next) => {
 		name: req.body.name, 
 		desc: req.body.desc, 
 		img: { 
-			data: fs.readFileSync(path.join('C:/Users/achraf/Desktop/node_passport_login/uploads/' + req.file.filename)), 
+			data: fs.readFileSync(path.join('C:/Users/achraf/Desktop/nodejstp/uploads/' + req.file.filename)), 
 			contentType: 'image/png'
 		} 
 	} 
@@ -51,7 +51,6 @@ app.post('/find', upload.single('image'), (req, res, next) => {
 			console.log(err); 
 		} 
 		else { 
-			// item.save(); 
 			res.redirect('/services/find'); 
 			
 		} 
@@ -59,14 +58,17 @@ app.post('/find', upload.single('image'), (req, res, next) => {
 }); 
 // Retriving the last image 
 app.get('/show', (req, res) => {
-	imgModel.findOne({}, function(err, result) {
-	   if (err) {
-		 console.log(err);
-	   } else {
-		 res.render('show',{image:result});
-	   }
-	 }).sort({_id:1});
-	 
+	mongoose.connection.collection('images').find()
+    .sort({$natural: -1})
+	.limit(1)
+	.next()
+    .then(
+      function(doc) {
+        res.render('show',{image:doc});
+      },
+      function(err) {
+        console.log('Error:', err);
+      })
 }); 
 
 module.exports = app;
