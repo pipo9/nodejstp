@@ -1,14 +1,25 @@
  
-<h1>Uplaoded Images</h1> 
-<div >    
+
+<div class="card service">
+    <h3 class="">Uplaoded Posters</h3>
+</div>
+
+<div class="grid-container">
+
     <% items.forEach(function(image) { %> 
 
-        <div class="card col-md-6 m-auto" style="width:400px" style="display: inline;">
-            <img class="card-img-top p-2 bg-info" src="data:image/<%=image.img.contentType%>;base64, 
+        <!-- <div class="col-md-6">
+            <img class="gallery_img" src="data:image/<%=image.img.contentType%>;base64, 
+            <%=image.img.data.toString('base64')%>" alt="Card image">
+        </div> -->
+
+        <div class="card">
+            <img class="card-img-top gallery_img bg-info" src="data:image/<%=image.img.contentType%>;base64, 
             <%=image.img.data.toString('base64')%>" alt="Card image">
           </div>
 
     <% }) %> 
+
 </div> 
 
 

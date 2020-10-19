@@ -1,14 +1,15 @@
-<h1>last Uplaoded Images</h1> 
-<div> 
-    
-    <div> 
-        <div>
-            <% if(image!=null){%>
-             <img src="data:image/<%=image.img.contentType%>;base64, 
-                <%=image.img.data.toString('base64')%>"> 
-            <%} else{%> 
-                <p> nothing here</p>
-            <%}%>   
-        </div> 
-    </div> 
+<div class="card service">
+    <h3 class="">Last Uploaded Poster</h3>
+</div>
+
+
+<div class="poster">
+    <% if(image!=null){%>
+        <div class="card">
+            <img class="card-img-top gallery_img bg-info" src="data:image/<%=image.img.contentType%>;base64, 
+                        <%=image.img.data.toString('base64')%>" alt="Card image">
+        </div>
+        <%} else{%> 
+            <p class="lead pt-4">----- Oops..! Nothing Here ------</p>
+        <%}%>   
 </div>

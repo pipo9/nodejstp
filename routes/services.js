@@ -22,7 +22,7 @@ require('dotenv/config');
 
 // Uploading the image 
 app.get('/upload',(req,res)=>{
-    res.render('upload'); 
+    res.render('upload',{layout : 'navbar'}); 
 });
 // Retriving the images 
 app.get('/find', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/find', (req, res) => {
 		if (err) {
 		  console.log(err);
 		} else {
-		  res.render('find',{items:result});
+		  res.render('find',{items:result,layout : 'navbar'});
 		}
 	  });
       
@@ -64,7 +64,7 @@ app.get('/show', (req, res) => {
 	.next()
     .then(
       function(doc) {
-        res.render('show',{image:doc});
+        res.render('show',{image:doc,layout : 'navbar'});
       },
       function(err) {
         console.log('Error:', err);

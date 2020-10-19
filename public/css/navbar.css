@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+} 
+nav {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.12rem solid black;
+    width: 80%;
+    margin: 1rem auto;
+}
+
+footer {
+    padding: 3rem 0rem;
+}
+
+.cp-text{ 
+    color: rgba(0,0,0,.7); 
+    text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.services {
+    display: flex;
+    margin-left: auto;
+}
+.services li {
+    margin-right: 1rem;
+} 
+.services a {
+    font-size: 1.2rem;
+}
+.services a:hover {
+    color: #eb6864;
+}
+.page-title a {
+    font-size: 2rem;
+}
+.welcome {
+    width: 50%;
+    margin: 5rem auto;
+    padding: 2rem;
+}
+
+.service {
+    width: 50%;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+
+/***** find ***/ 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3em 3em;
+    margin: 2rem 5rem;
+  }
+  .grid-container .card {
+    box-shadow: 0px 2px 15px #000000a3;
+    cursor: pointer;
+  }
+  .grid-container .card:hover {
+    width: 100%;
+    height: 100%;
+  }
+
+.gallery_img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+  
+
+/***show**/
+.poster {
+    width: 25%;
+    margin: 2rem auto;
+}
+
+/** upload **/
+
+.form-container {
+    width: 50%;
+    margin: auto;
+    padding: 4rem;
+}
